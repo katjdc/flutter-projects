@@ -32,8 +32,7 @@ class _HomePageState extends State<HomePage> {
   // Connection to themoviesdb.org API
   loadmovies () async {
     TMDB tmdbWithCustomLogs = TMDB(ApiKeys(APIKey, AccessToken),
-      logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true)
-    );
+      logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true));
 
     Map trendingResults = await tmdbWithCustomLogs.v3.trending.getTrending();
     Map tvresult = await tmdbWithCustomLogs.v3.tv.getPopular();

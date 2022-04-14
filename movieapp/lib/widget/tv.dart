@@ -40,36 +40,33 @@ class TV extends StatelessWidget {
                                   'https://image.tmdb.org/t/p/w500' +
                                     tv[index]['poster_path'],
                               description: tv[index]['overview'],
-                              vote: tv[index]['vote_average']
-                                  .toString(),
-                              launch_on: tv[index]['first_air_date'],
+                              vote: tv[index]['vote_average'].toString(),
+                              air_date: tv[index]['first_air_date'],
+                              original_language: tv[index]['original_language'],
                             )));
                       },
                       child: Container(
-                      padding: EdgeInsets.all(5),
-                      width: 250.0,
-                      child: Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
+                        width: 140.0,
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 200.0,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
                                   image: NetworkImage(
-                                      'https://image.tmdb.org/t/p/w500' +
-                                          tv[index]['backdrop_path']
-                                          ),
-                                  fit: BoxFit.cover),
+                                    'https://image.tmdb.org/t/p/w500' +
+                                    tv[index]['poster_path']
+                                  )
+                                )
+                              ),
                             ),
-                            height: 140,
-                          ),
-                          SizedBox(height: 5.0),
-                          Container(
+                          Expanded(
+                          child: Container(
                             child: CustomText(
                               color: Colors.white,
                                 size: 15,
-                                text: tv[index]['name'] ?? 'Loading')
-                          )
-                        ],
+                                text: tv[index]['original_name'] == null ? 'no title' : tv[index]['original_name']))
+                          )],
                       ),
                     ));
                   }))

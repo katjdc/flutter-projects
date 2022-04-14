@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movieapp/widget/customtext.dart';
 
 class DescriptionTV extends StatelessWidget {
-  final String name, description, bannerurl, posterurl, vote, launch_on;
+  final String name, description, bannerurl, posterurl, vote, air_date, original_language;
 
   const DescriptionTV(
       {Key? key, 
@@ -11,11 +11,20 @@ class DescriptionTV extends StatelessWidget {
       required this.bannerurl,
       required this.posterurl,
       required this.vote,
-      required this.launch_on})
+      required this.air_date,
+      required this.original_language})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
+        title: Text(
+          name, style: const TextStyle(fontSize: 25, color: Colors.white),
+       ),
+      centerTitle: true,
+      elevation: 0,
+     ),
       backgroundColor: Colors.black,
       body: Container(
         child: ListView(children: [
@@ -32,19 +41,23 @@ class DescriptionTV extends StatelessWidget {
                     ),
                   ),
                 ),
+             ])),
                 Positioned(
                     bottom: 10,
                     child: CustomText(text: '⭐ Average Rating - ' + vote, size: 24, color: Colors.white)),
-              ])),
           SizedBox(height: 15.0),
           Container(
               padding: EdgeInsets.all(10),
               child: CustomText(
-                  text: name, size: 24, color: Colors.white)),
+                  text: name != null ? name: 'Null', size: 24, color: Colors.white)),
           Container(
               padding: EdgeInsets.only(left: 10),
               child:
-                  CustomText(text: 'Aired on- ' + launch_on, size: 14, color: Colors.white)),
+                  CustomText(text: 'Aired on- ' + air_date, size: 14, color: Colors.white)),
+          Container(
+              padding: EdgeInsets.only(left: 10),
+              child:
+                  CustomText(text: 'Language: ' + original_language, size: 14, color: Colors.white)),
           Row(
             children: [
               Container(
