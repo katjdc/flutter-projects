@@ -43,10 +43,10 @@ class Description extends StatelessWidget {
                   ),
                 ),
               ])),
-                Positioned(
-                    bottom: 10,
-                    child: CustomText(text: '⭐ Average Rating - ' + vote, size: 24, color: Colors.white)),
           SizedBox(height: 15.0),
+          Container(
+              padding: EdgeInsets.all(10),
+              child: CustomText(text: '⭐ Average Rating - ' + vote, size: 24, color: Colors.white)),
           Container(
               padding: EdgeInsets.all(10),
               child: CustomText(

@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     TMDB tmdbWithCustomLogs = TMDB(ApiKeys(APIKey, AccessToken),
       logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true));
 
-    Map trendingResults = await tmdbWithCustomLogs.v3.trending.getTrending();
+    Map trendingResults = await tmdbWithCustomLogs.v3.trending.getTrending(mediaType: MediaType.movie);
     Map tvresult = await tmdbWithCustomLogs.v3.tv.getPopular();
 
     setState(() {

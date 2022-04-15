@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/widget/customtext.dart';
-import 'package:movieapp/descriptiontv.dart';
+import 'package:movieapp/description.dart';
 
 class TV extends StatelessWidget {
   final List tv;
@@ -31,7 +31,7 @@ class TV extends StatelessWidget {
                         Navigator.push(
                           context, 
                           MaterialPageRoute(
-                            builder: (context) => DescriptionTV(
+                            builder: (context) => Description(
                               name: tv[index]['name'],
                               bannerurl: 
                                   'https://image.tmdb.org/t/p/w500' +
@@ -41,7 +41,7 @@ class TV extends StatelessWidget {
                                     tv[index]['poster_path'],
                               description: tv[index]['overview'],
                               vote: tv[index]['vote_average'].toString(),
-                              air_date: tv[index]['first_air_date'],
+                              launch_on: tv[index]['first_air_date'],
                               original_language: tv[index]['original_language'],
                             )));
                       },
